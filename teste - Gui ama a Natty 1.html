@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site da Livraria Celsius">
+    <meta name="author" content="Natália Xavier">
+    <style>
+        body {
+            background-color: #f9f9f9; /* Cor de fundo suave */
+            font-family: 'Arial', sans-serif;
+            color: #333; /* Texto em cinza escuro */
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50; /* Cor azul escuro para título */
+            font-size: 2.5em;
+        }
+
+        .barra {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            width: 300px;
+            height: 35px;
+            margin: 10px 0;
+        }
+
+        .book {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            background-color: #ffffff;
+            width: 300px;
+            height: 580px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #777;
+        }
+
+        .arredondar {
+            border-radius: 15px;
+            width: 300px;
+            height: 500px;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px;
+        }
+
+        .preco {
+            color: #e67e22; /* Laranja suave para preço */
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .botao-comprar {
+            background-color: #e67e22; /* Laranja para chamar atenção */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-left: 20px;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: background-color 0.3s;
+        }
+
+        .botao-comprar:hover {
+            background-color: #d35400; /* Cor laranja mais intensa no hover */
+        }
+
+        .botao {
+            color: #3498db; /* Azul para botões de navegação */
+            padding: 15px 32px;
+            text-decoration: none;
+            align-content: end;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border: 2px solid #3498db;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .linha {
+            border: none;
+            height: 2px;
+            background-color: #e67e22; /* Cor de linha laranja */
+            margin: 20px 0;
+        }
+
+        .topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .categorias {
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+        }
+
+        .barra-container {
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+        }
+
+        /* Nova posição para a barra de busca */
+        .barra-container {
+            flex: 1; /* Faz a barra de busca ocupar o máximo disponível */
+            display: flex;
+            justify-content: flex-start; /* Move a barra para a esquerda */
+        }
+
+        /* Carrinho de compras ajustado */
+        .carrinho {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3498db; /* Azul vibrante para o carrinho */
+            color: white;
+            border: 3px solid #2980b9; /* Borda azul escura */
+            padding: 20px 30px;
+            border-radius: 50%;
+            font-size: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar o carrinho */
+            transition: all 0.3s ease;
+        }
+
+        .carrinho:hover {
+            transform: scale(1.1); /* Aumenta um pouco o tamanho do carrinho ao passar o mouse */
+        }
+
+        .carrinho span {
+            margin-left: 10px;
+            font-size: 20px; /* Tamanho maior para a quantidade de itens */
+        }
+    </style>
+    <title>Livraria Celsius</title>
+</head>
+
+<body>
+    <h1>Livraria Celsius</h1>
+
+    <div class="topo">
+        <div class="barra-container">
+            <input type="search" placeholder="Buscar..." class="barra">
+        </div>
+        <div class="categorias">
+            <a href="index.html" class="botao"> <strong>Principal</strong></a>
+            <a href="literatura_asiatica.html" class="botao"> <strong>Literatura asiática</strong></a>
+            <a href="crianca.html" class="botao"> <strong>Crianças</strong></a>
+            <a href="romance.html" class="botao"> <strong>Romance</strong></a>
+            <a href="conta.html" class="botao"> <strong>Faça seu login</strong></a>
+        </div>
+    </div>
+    <hr class="linha">
+    <br></br>
+    <div class="container">
+        <div class="galeria">
+            <div class="book" data-id="1" data-nome="A seleção" data-preco="29.90">
+                <img src="https://m.media-amazon.com/images/I/81ql6xkkliL._AC_UF1000,1000_QL80_.jpg" width="300" height="500" class="arredondar">
+                <strong>A seleção</strong>
+                <small>Kierra Cass</small>
+                <div class="preco">R$ 29,90</div>
+                <button class="botao-comprar">Comprar</button>
+            </div>
+
+            <div class="book" data-id="2" data-nome="A menina do outro lado" data-preco="60.99">
+                <img src="https://m.media-amazon.com/images/I/71-FtMuje8L._AC_UF1000,1000_QL80_.jpg" width="300" height="500" class="arredondar">
+                <strong>A menina do outro lado</strong>
+                <small>Nagabe</small>
+                <div class="preco">R$ 60,99</div>
+                <button class="botao-comprar">Comprar</button>
+            </div>
+
+            <div class="book" data-id="3" data-nome="Amor de perdição" data-preco="15.00">
+                <img src="https://m.media-amazon.com/images/I/91loGpgwb9L._AC_UF1000,1000_QL80_.jpg" width="300" height="500" class="arredondar">
+                <strong>Amor de perdição</strong>
+                <small>Camilo Castelo Branco</small>
+                <div class="preco">R$ 15,00</div>
+                <button class="botao-comprar">Comprar</button>
+            </div>
+
+            <div class="book" data-id="4" data-nome="League of Legends" data-preco="160.00">
+                <img src="https://d14d9vp3wdof84.cloudfront.net/image/589816272436/image_8a0kcvocb13ppebeebaseenj00/-S897-FWEBP" width="300" height="500" class="arredondar">
+                <strong>Jujutsu Kaisen: Vol. 26</strong>
+                <small>Gege Akutami</small>
+                <div class="preco">R$ 160,00</div>
+                <button class="botao-comprar">Comprar</button>
+            </div>
+
+            <div class="book" data-id="5" data-nome="Senhor dos anéis" data-preco="70.00">
+                <img src="https://harpercollins.com.br/cdn/shop/files/9788595086364_5d58176e-b4dd-41ef-a655-39b87a84ac5a.jpg?v=1728371685" width="300" height="500" class="arredondar">
+                <strong>O senhor dos anéis</strong>
+                <small>J.R.R. Tolkien</small>
+                <div class="preco">R$ 70,00</div>
+                <button class="botao-comprar">Comprar</button>
+            </div>
+
+            <div class="book" data-id="6" data-nome="Harry Potter" data-preco="105.00">
+                <img src="https://m.media-amazon.com/images/I/81ibfYk4qmL._AC_UF1000,1000_QL80_.jpg" width="300" height="500" class="arredondar">
+                <strong>Harry Potter e a Pedra Filosofal</strong>
+                <small>J.K. Rowling</small>
+                <div class="preco">R$ 105,00</div>
+                <button class="botao-comprar">Comprar</button>
+            </div>
+
+            <div class="book" data-id="7" data-nome="O orfanato da Srta. Peregrine" data-preco="89.99">
+                <img src="https://m.media-amazon.com/images/I/81pdXbEIZhL._UF894,1000_QL80_.jpg" width="300" height="500" class="arredondar">
+                <strong>Dom Quixote de La Mancha:</strong>
+                <small>Miguel de Cervantes</small>
+                <div class="preco">R$ 89,99</div>
+                <button class="botao-comprar">Comprar</button>
+            </div>
+
+            <div class="book" data-id="8" data-nome="Os três amigos" data-preco="50.90">
+                <img src="https://m.media-amazon.com/images/I/A1xWjc50fmL._AC_UF1000,1000_QL80_.jpg" width="300" height="500" class="arredondar">
+                <strong>Moby Dick, ou A baleia</strong>
+                <small>Herman Melville</small>
+                <div class="preco">R$ 50,90</div>
+                <button class="botao-comprar">Comprar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrinho de compras -->
+    <button class="carrinho" id="carrinho">
+        🛒 <span id="quantidade">0</span>
+    </button>
+
+    <script>
+        let carrinho = [];
+
+        // Função para atualizar o carrinho
+        function atualizarCarrinho() {
+            const quantidadeElement = document.getElementById('quantidade');
+            quantidadeElement.innerText = carrinho.length;
+        }
+
+        // Função para adicionar um item ao carrinho
+        function adicionarAoCarrinho(nome, preco) {
+            carrinho.push({ nome, preco });
+            atualizarCarrinho();
+        }
+
+        // Adicionando funcionalidade ao botão "Comprar"
+        document.querySelectorAll('.botao-comprar').forEach(button => {
+            button.addEventListener('click', () => {
+                const book = button.closest('.book');
+                const nome = book.getAttribute('data-nome');
+                const preco = parseFloat(book.getAttribute('data-preco'));
+                adicionarAoCarrinho(nome, preco);
+            });
+        });
+    </script>
+</body>
+
+</html>
